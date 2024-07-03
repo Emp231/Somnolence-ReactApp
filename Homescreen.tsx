@@ -1,16 +1,25 @@
-import { StyleSheet, Text, View, TouchableOpacity, Button } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity    } from "react-native";
 import React from "react";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackPramList } from "./App";
-
-
 
 const Home = ({ navigation }: { navigation: any }) => {
     return(
         <View style={styles.container}>
-        <Button title="Get Started" onPress={() => navigation.navigate("GSscreen")}></Button>
-        <Button title="Help" onPress={() => navigation.navigate("Helpscreen")}></Button>
-        <Button title="About" onPress={() => navigation.navigate("Aboutscreen")}></Button>
+
+        <Text style={styles.topText}>
+            Welcome to Somnolence!
+        </Text>
+
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("GSscreen")}>
+        <Text style={styles.buttonText}>Get Started</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Helpscreen")}>
+        <Text style={styles.buttonText}>Help</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Aboutscreen")}>
+        <Text style={styles.buttonText}>About</Text>
+      </TouchableOpacity>
       </View>
     )
 }
@@ -25,7 +34,7 @@ const styles = StyleSheet.create({
     },
     button: {
       backgroundColor: '#3498db',
-      width: '800%', 
+      width: '80%', 
       marginBottom: 20,
       paddingVertical: 15,
       borderRadius: 10,
@@ -35,4 +44,10 @@ const styles = StyleSheet.create({
       color: 'white',
       fontSize: 18,
     },
+    topText: {
+        paddingVertical:0,
+        marginBottom:200,
+        fontSize:46,
+        fontWeight:'900'
+    }
   });
