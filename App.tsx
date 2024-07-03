@@ -1,27 +1,66 @@
-import React from 'react';
+import React, { UIEventHandler } from 'react';
 import {
   View,
   TouchableOpacity,
   Text,
   StyleSheet,
 } from 'react-native';
+import {NavigationContainer} from "@react-navigation/native"
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home from './Homescreen';
+import GSscreen from './GSscreen';
+import Helpscreen from './Helpscreen';
+import Aboutscreen from './Aboutscreen';
 
-function App() {
-  return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Get Started!</Text>
-      </TouchableOpacity>
+export type RootStackPramList = {
+  Home: undefined;
+  GSscreen: undefined;
+  Helpscreen: undefined;
+  Aboutscreen: undefined
+}
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Help</Text>
-      </TouchableOpacity>
+const Stack = createNativeStackNavigator<RootStackPramList>()
+ 
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>About</Text>
-      </TouchableOpacity>
-    </View>
-  );
+const App = () => {
+  return(
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Home'>
+        <Stack.Screen 
+          name='Home'
+          component={Home}
+          options={{
+            title: "Somnolence",
+            headerTitleAlign: 'center'
+          }}
+        /> 
+        <Stack.Screen
+          name='GSscreen'
+          component={GSscreen}
+          options={{
+            title: "Somnolence",
+            headerTitleAlign: 'center'
+          }}
+        /> 
+        <Stack.Screen
+          name='Helpscreen'
+          component={Helpscreen}
+          options={{
+            title: "Somnolence",
+            headerTitleAlign: 'center'
+          }}
+        /> 
+        <Stack.Screen
+          name='Aboutscreen'
+          component={Aboutscreen}
+          options={{
+            title: "Somnolence",
+            headerTitleAlign: 'center'
+          }}
+        /> 
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -33,7 +72,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#3498db',
-    width: '80%', // Adjust the width as needed
+    width: '80%', 
     marginBottom: 20,
     paddingVertical: 15,
     borderRadius: 10,
