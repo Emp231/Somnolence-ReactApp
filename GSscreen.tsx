@@ -1,22 +1,14 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import React, {useState} from "react";
-import { Camera, useCameraDevice, useCameraPermission } from "react-native-vision-camera";
-
-
+import React from "react";
 
 const GSscreen = () => {
-    const deviceOne = useCameraDevice('back')
-    const { hasPermission, requestPermission } = useCameraPermission()
-    
-    if (deviceOne == null) return <Text>NoCAMERA</Text>
-
-    return (
-        <Camera
-          device={deviceOne}
-          isActive={true}
-        />
-      )
-
+    return(
+        <View>
+            <Text>
+                Hi!
+            </Text>
+        </View>
+    )
 }
 
 export default GSscreen
